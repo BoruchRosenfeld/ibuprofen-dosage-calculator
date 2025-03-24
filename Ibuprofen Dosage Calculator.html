@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ibuprofen Dosage Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
+        input, button {
+            padding: 10px;
+            font-size: 16px;
+            margin-top: 10px;
+        }
+        table {
+            width: 100%;
+            margin-top: 20px;
+            border-collapse: collapse;
+        }
+        table, th, td {
+            border: 1px solid #000;
+        }
+        th, td {
+            padding: 8px;
+            text-align: center;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <h1>Ibuprofen (50mg/1.25mL) Dosage Calculator</h1>
+    <label for="weight">Enter child's weight (lbs):</label>
+    <input type="number" id="weight" name="weight" placeholder="Weight in lbs" required>
+    <button onclick="calculateDose()">Calculate</button>
+
+    <h2>Recommended Dosage: <span id="result"></span></h2>
+
+    <!-- Table with dosage ranges -->
+    <h3>Dosage Ranges</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>Weight Range (lbs)</th>
+                <th>Dosage (mL)</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>0-9 lbs</td>
+                <td>0.625 mL</td>
+            </tr>
+            <tr>
+                <td>10-17 lbs</td>
+                <td>1.25 mL</td>
+            </tr>
+            <tr>
+                <td>18-21 lbs</td>
+                <td>1.875 mL</td>
+            </tr>
+            <tr>
+                <td>22-25 lbs</td>
+                <td>2.5 mL</td>
+            </tr>
+            <tr>
+                <td>26-31 lbs</td>
+                <td>3.75 mL</td>
+            </tr>
+            <tr>
+                <td>32+ lbs</td>
+                <td>5 mL</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <script>
+        function calculateDose() {
+            let weight = document.getElementById('weight').value;
+            let dosage;
+
+            if (weight <= 9) {
+                dosage = 0.625;
+            } else if (weight <= 17) {
+                dosage = 1.25;
+            } else if (weight <= 21) {
+                dosage = 1.875;
+            } else if (weight <= 25) {
+                dosage = 2.5;
+            } else if (weight <= 31) {
+                dosage = 3.75;
+            } else {
+                dosage = 5;
+            }
+
+            document.getElementById('result').textContent = dosage + " mL";
+        }
+    </script>
+</body>
+</html>
